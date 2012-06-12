@@ -11,7 +11,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * No1 Main
+ * No1 Main <br/>
+ * 간단한 빈 선언
  *
  * @author <a href="mailto:scroogy@swtest.co.kr">최영목</a>
  * @since 2012. 6. 12.

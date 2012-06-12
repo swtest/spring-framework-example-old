@@ -11,7 +11,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * No2_2 Main
+ * No2_2 Main <br/>
+ * 생성자로 객체 레퍼런스 주입하기
  *
  * @author <a href="mailto:scroogy@swtest.co.kr">최영목</a>
  * @since 2012. 6. 12.

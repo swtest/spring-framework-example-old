@@ -2,22 +2,19 @@
  * Copyright(c) 2012 SWTEST. All rights reserved.
  * This software is the proprietary information of SWTEST.
  *******************************************************************************/
-package kr.co.swtest.example.spring.bean.no2;
+package kr.co.swtest.example.spring.bean.example02;
 
 /**
- * 맥북프로(2012)
+ * 컴퓨터
  *
  * @author <a href="mailto:scroogy@swtest.co.kr">최영목</a>
  * @since 2012. 6. 12.
  */
-public class MacBookPro2012 implements Computer {
+public interface Computer {
 
     /**
-     * {@inheritDoc}
+     * @return 컴퓨터이름
      */
-    @Override
-    public String name() {
-        return "[맥북프로(2012) : 레티나 디스플레이 / SSD 512GB]";
-    }
+    public String name();
 
 }

@@ -2,8 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<!-- kr.co.swtest.example.spring.bean.no2-1 설정 : 생성자를 이용한 주입 -->
-	<bean id="programmer" class="kr.co.swtest.example.spring.bean.no1.Programmer">
+	<!-- 생성자로 객체 레퍼런스 주입하기 -->
+	<bean id="macbookPro2012" class="kr.co.swtest.example.spring.bean.example02.MacBookPro2012" />
+
+	<bean id="iPhoneAppProgrammer" class="kr.co.swtest.example.spring.bean.example02.IPhoneAppProgrammer">
 		<constructor-arg value="12" />
+		<constructor-arg ref="macbookPro2012" />
 	</bean>
 </beans>

@@ -4,7 +4,7 @@
  *******************************************************************************/
 package kr.co.swtest.example.spring.bean.no6;
 
-import kr.co.swtest.example.spring.bean.no2.Computer;
+import kr.co.swtest.example.spring.bean.example02.Computer;
 
 /**
  * ¿ïÆ®¶óºÏ

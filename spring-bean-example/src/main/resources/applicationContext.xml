@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- 여기까지가 빈 선언 -->
+	<!--
+		스프링 컨테이너를 설정할 수 있는 다양한 XML 네임스페이스가 있음
+		aop 	: 애스팩트 선언을 위한 엘리먼트와 @AspectJ 애노테이션이 적용된 클래스르 자동으로 스프링 애스펙트로 프록시하는 엘리먼트를 제공함.
+		beans 	: 핵심 원시 스프링 네임스페이스로, 빈의 선언과 연결 방법을 정의할 수 있음.
+		context : 스프링에 의해 직접 관리되지 않는 객체의 주입과 빈을 오토디텍트(autodetect)하고 오토와이어링(autowiring)하는 기능을 포함하여
+				 스프링 애플리케이션 컨텍스트를 설정하기 위한 엘리먼트를 제공함.
+		jee		: JNDI와 EJB 등의 Java EE API와의 통합을 제공함.
+		jms		: 메시지 드리븐 POJO를 선언하기 위한 설정 엘리먼트를 제공함.
+		lang	: Groovy, JRuby, 또는 BeanShell 스크립트로 구현되는 빈의 선언을 가능하게 함.
+		mvc		: 애노테이션 지향 컨트롤러, 뷰 컨트롤러, 그리고 인터셉터 등의 스프링 MVC 기능을 가능하게 함.
+		oxm		: 스프링의 객체-XML 매핑 구조의 설정을 지원함.
+		tx		: 선언적 트랜잭션 설정을 제공함.
+		util	: 유틸리티 엘리먼트의 다양한 선택. 컬렉션을 빈으로 선언하는 기능과 프로퍼티 대치(placeholder) 엘리먼트에 대한 지원을 포함.
+	-->
+</beans>

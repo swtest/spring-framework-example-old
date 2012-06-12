@@ -1,26 +1,25 @@
-package kr.co.swtest.example.spring.bean;
-
 /*******************************************************************************
  * Copyright(c) 2012 SWTEST. All rights reserved.
  * This software is the proprietary information of SWTEST.
  *******************************************************************************/
+package kr.co.swtest.example.spring.bean.example01;
 
-import kr.co.swtest.example.spring.bean.no1.Programmer;
-
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * No1 Main <br/>
+ * Example01Test <br/>
  * 간단한 빈 선언
  *
  * @author <a href="mailto:scroogy@swtest.co.kr">최영목</a>
- * @since 2012. 6. 12.
+ * @since 2012. 6. 13.
  */
-public class No1Main {
+public class Example01Test {
 
-    public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("no1-context.xml");
+    @Test
+    public void test() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("example01-applicationContext.xml");
 
         Programmer programmer = (Programmer) ctx.getBean("programmer");
         programmer.work();

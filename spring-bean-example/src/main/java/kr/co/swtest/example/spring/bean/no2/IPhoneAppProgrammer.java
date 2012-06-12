@@ -4,7 +4,7 @@
  *******************************************************************************/
 package kr.co.swtest.example.spring.bean.no2;
 
-import kr.co.swtest.example.spring.bean.no1.Programmer;
+import kr.co.swtest.example.spring.bean.example01.Programmer;
 
 /**
  * 아이폰 앱 프로그래머

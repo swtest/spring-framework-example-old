@@ -2,6 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<!-- kr.co.swtest.example.spring.bean.no3 설정 : 팩토리 메서드를 이용한 빈 생성 -->
-	<bean id="serviceFactory" class="kr.co.swtest.example.spring.bean.no3.ServiceFactory" factory-method="getInstance" />
+	<!-- 팩토리 메서드를 이용한 빈 생성 -->
+	<bean id="serviceFactory" class="kr.co.swtest.example.spring.bean.example03.ServiceFactory" factory-method="getInstance" />
 </beans>

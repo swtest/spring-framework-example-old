@@ -6,6 +6,7 @@
 	<bean id="macbookPro2012" class="kr.co.swtest.example.spring.bean.no2.MacBookPro2012" />
 
 	<bean id="iPhoneAppProgrammer" class="kr.co.swtest.example.spring.bean.no2.IPhoneAppProgrammer">
+		<!-- 생성자의 parameter 순서와 동일해야 함 -->
 		<constructor-arg value="12" />
 		<constructor-arg ref="macbookPro2012" />
 	</bean>

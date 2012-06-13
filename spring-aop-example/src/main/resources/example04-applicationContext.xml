@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 스프링 aop 예제 -->
+	<bean id="customerServiceLogic02" class="kr.co.swtest.example.spring.aop.example02.service.logic.CustomerServiceLogic02" />
+
+	<bean id="transactionServiceProxy03" class="kr.co.swtest.example.spring.aop.example04.TransactionServiceProxy03" />
+
+	<aop:config>
+		<aop:aspect ref="transactionServiceProxy03">
+			<aop:pointcut id="customerServicePointCut" expression="execution(* kr.co.swtest.example.spring.aop.example01.service.CustomerService.someProcess(..))" />
+
+			<aop:before 			pointcut-ref="customerServicePointCut" method="before"/>
+			<aop:after				pointcut-ref="customerServicePointCut" method="after"/>
+			<aop:after-returning 	pointcut-ref="customerServicePointCut" method="afterReturning"/>
+			<aop:after-throwing	 	pointcut-ref="customerServicePointCut" method="afterThrowing"/>
+		</aop:aspect>
+	</aop:config>
+
+</beans>

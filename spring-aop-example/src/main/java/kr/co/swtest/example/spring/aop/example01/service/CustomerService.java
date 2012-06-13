@@ -16,8 +16,7 @@ public interface CustomerService {
      * 특정 프로세스 처리
      *
      * @param level 고객레벨
-     * @return 처리결과
      */
-    public boolean someProcess(int customerLevel);
+    public void someProcess(int customerLevel);
 
 }

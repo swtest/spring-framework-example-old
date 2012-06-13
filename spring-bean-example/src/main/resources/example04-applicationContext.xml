@@ -11,7 +11,7 @@
 		global-session	: 전역 HTTP 세션(global HTTP session)당 하나의 인스턴스. 포틀릿 환경에서 사용할 때만 유효함.
 	 -->
 
-	<!-- kr.co.swtest.example.spring.bean.no4 설정 : 빈 유효범위 지정 -->
-	<bean id="ticket1" class="kr.co.swtest.example.spring.bean.no4.Ticket" scope="singleton" />
-	<bean id="ticket2" class="kr.co.swtest.example.spring.bean.no4.Ticket" scope="prototype" />
+	<!-- 빈 유효범위 지정 -->
+	<bean id="ticket1" class="kr.co.swtest.example.spring.bean.example04.Ticket" scope="singleton" />
+	<bean id="ticket2" class="kr.co.swtest.example.spring.bean.example04.Ticket" scope="prototype" />
 </beans>

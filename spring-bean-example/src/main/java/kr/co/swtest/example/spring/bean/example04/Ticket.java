@@ -2,7 +2,7 @@
  * Copyright(c) 2012 SWTEST. All rights reserved.
  * This software is the proprietary information of SWTEST.
  *******************************************************************************/
-package kr.co.swtest.example.spring.bean.no4;
+package kr.co.swtest.example.spring.bean.example04;
 
 /**
  * Ticket

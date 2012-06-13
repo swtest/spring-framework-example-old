@@ -5,7 +5,7 @@ package kr.co.swtest.example.spring.bean;
  * This software is the proprietary information of SWTEST.
  *******************************************************************************/
 
-import kr.co.swtest.example.spring.bean.no6.AndroidAppProgrammer;
+import kr.co.swtest.example.spring.bean.example06.AndroidAppProgrammer;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

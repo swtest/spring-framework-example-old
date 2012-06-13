@@ -2,21 +2,21 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<!-- kr.co.swtest.example.spring.bean.no6-3 설정 : 빈 프로퍼티에 주입하기(내부 빈 주입) -->
+	<!-- 빈 프로퍼티에 주입하기(내부 빈 주입) -->
 
-	<bean id="androidAppProgrammer" class="kr.co.swtest.example.spring.bean.no6.AndroidAppProgrammer">
+	<bean id="androidAppProgrammer" class="kr.co.swtest.example.spring.bean.example06.AndroidAppProgrammer">
 		<property name="addWorkTime" value="3" />
 		<property name="computer">
-			<bean class="kr.co.swtest.example.spring.bean.no6.UltraBook" />
+			<bean class="kr.co.swtest.example.spring.bean.example06.UltraBook" />
 		</property>
 	</bean>
 
 	<!--
 		생성자를 통한 내부 빈 주입도 가능함.
-		<bean id="iPhoneAppProgrammer" class="kr.co.swtest.example.spring.bean.no2.IPhoneAppProgrammer">
+		<bean id="iPhoneAppProgrammer" class="kr.co.swtest.example.spring.bean.example02.IPhoneAppProgrammer">
 			<constructor-arg value="12" />
 			<constructor-arg>
-				<bean class="kr.co.swtest.example.spring.bean.no2.MacBookPro2012" />
+				<bean class="kr.co.swtest.example.spring.bean.example02.MacBookPro2012" />
 			</constructor-arg>
 		</bean>
 	 -->

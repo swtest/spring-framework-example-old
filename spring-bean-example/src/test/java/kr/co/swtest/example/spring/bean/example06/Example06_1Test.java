@@ -1,26 +1,25 @@
-package kr.co.swtest.example.spring.bean;
-
 /*******************************************************************************
  * Copyright(c) 2012 SWTEST. All rights reserved.
  * This software is the proprietary information of SWTEST.
  *******************************************************************************/
+package kr.co.swtest.example.spring.bean.example06;
 
-import kr.co.swtest.example.spring.bean.no6.AndroidAppProgrammer;
-
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * No6_2 Main <br/>
+ * Example06_1Test <br/>
  * 빈 프로퍼티에 주입하기
  *
  * @author <a href="mailto:scroogy@swtest.co.kr">최영목</a>
- * @since 2012. 6. 12.
+ * @since 2012. 6. 13.
  */
-public class No6_2Main {
+public class Example06_1Test {
 
-    public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("no6-2-context.xml");
+    @Test
+    public void test() {
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("example06_1-applicationContext.xml");
 
         AndroidAppProgrammer androidAppProgrammer = (AndroidAppProgrammer) ctx.getBean("androidAppProgrammer");
         androidAppProgrammer.work();

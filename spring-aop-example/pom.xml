@@ -10,4 +10,13 @@
 	<artifactId>spring-aop-example</artifactId>
 	<description>스프링 AOP에 대한 예제 프로젝트이다.</description>
 
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
 </project>

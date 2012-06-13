@@ -2,9 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<!-- kr.co.swtest.example.spring.bean.no5 설정 : 빈의 초기화와 정리작업 -->
-	<bean id="room" class="kr.co.swtest.example.spring.bean.no5.Room"
-			init-method="turnOnLights" destroy-method="turnOffLights" />
+	<!-- 빈의 초기화와 정리작업 -->
+	<bean id="room" class="kr.co.swtest.example.spring.bean.example05.Room" init-method="turnOnLights" destroy-method="turnOffLights" />
 
 	<!--
 		모든 빈에 init-method와 destory-method 디폴트 값 지정하기

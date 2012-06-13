@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<!-- 생성자로 객체 레퍼런스 주입하기 -->
-	<bean id="macbookPro2012" class="kr.co.swtest.example.spring.bean.example02.MacBookPro2012" />
+	<bean id="macbookProRetina" class="kr.co.swtest.example.spring.bean.example02.MacBookProRetina" />
 
 	<bean id="iPhoneAppProgrammer" class="kr.co.swtest.example.spring.bean.example02.IPhoneAppProgrammer">
 		<constructor-arg value="12" />
-		<constructor-arg ref="macbookPro2012" />
+		<constructor-arg ref="macbookProRetina" />
 	</bean>
 </beans>

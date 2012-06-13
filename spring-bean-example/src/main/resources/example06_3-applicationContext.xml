@@ -16,7 +16,7 @@
 		<bean id="iPhoneAppProgrammer" class="kr.co.swtest.example.spring.bean.example02.IPhoneAppProgrammer">
 			<constructor-arg value="12" />
 			<constructor-arg>
-				<bean class="kr.co.swtest.example.spring.bean.example02.MacBookPro2012" />
+				<bean class="kr.co.swtest.example.spring.bean.example02.MacBookProRetina" />
 			</constructor-arg>
 		</bean>
 	 -->

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						   http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+
+	<!-- JDBC 드라이버 기반 데이터 소스  -->
+	<!--
+		DriverManagerDataSource : 애플리케이션이 커넥션을 요청할 때마다 새로운 커넥션을 반환함.
+								DBCP의 BasicDataSource와는 달리, DriverManagerDataSource가 공급하는 커넥션은 풀링되지 않음.
+								멀티스레드에서도 동작하지만 커넥션이 필요할 때마다 새로운 커넥션을 생성하므로 심각한 성능 저하를 유발.
+
+		SingleConnectionDataSource : 커넥션을 요청하면 항상 동일한 커텍션을 반환함. 커넥션 풀링 기능은 없음.
+									멀티스레드에서 제대로 동작하지 않을 수 있음.
+	-->
+	<bean id="jdbcDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="url" value="jdbc:hsqldb:mem:test" />
+		<property name="username" value="SA" />
+		<property name="password" value="" />
+	</bean>
+
+	<!-- JNDI 데이터 소스  -->
+	<!--
+		jndi-name : JNDI에 있는 리소스의 이름
+		자바 애플리케이션 서버 내에서 구동하면 resource-ref = true로 설정하고 jndi-name 값 앞에 java:comp/env/가 붙는 이름을 사용함.
+		ex) java:comp/env/jdbc/swtestDs
+	-->
+	<jee:jndi-lookup id="jndiDataSource" jndi-name="/jdbc/swtestDs" resource-ref="true" />
+
+	<!-- Connection Pool 데이터 소스 (ex. DBCP)  -->
+	<bean id="dbcpDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+		<property name="url" value="jdbc:hsqldb:mem:test" />
+		<property name="username" value="SA" />
+		<property name="password" value="" />
+		<property name="initialSize" value="5" />
+		<property name="maxActive" value="10" />
+	</bean>
+</beans>

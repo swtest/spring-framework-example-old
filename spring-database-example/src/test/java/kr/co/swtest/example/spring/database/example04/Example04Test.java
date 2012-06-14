@@ -2,7 +2,7 @@
  * Copyright(c) 2012 SWTEST. All rights reserved.
  * This software is the proprietary information of SWTEST.
  *******************************************************************************/
-package kr.co.swtest.example.spring.database.example03;
+package kr.co.swtest.example.spring.database.example04;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -28,14 +28,14 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.test.jdbc.SimpleJdbcTestUtils;
 
 /**
- * Example03Test <br/>
- * SimpleJdbcTemplate 구현
+ * Example04Test <br/>
+ * SimpleJdbcDaoSupport 구현
  *
  * @author <a href="mailto:scroogy@swtest.co.kr">최영목</a>
  * @since 2012. 6. 14.
  */
 @SuppressWarnings("deprecation")
-public class Example03Test {
+public class Example04Test {
 
     /** 고객DAO */
     private CustomerDao customerDao;
@@ -52,8 +52,8 @@ public class Example03Test {
         SimpleJdbcTestUtils.executeSqlScript(template, resource, true);
 
         // 2. 테스트 대상 생성
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("example03-applicationContext.xml");
-        this.customerDao = (CustomerDao) ctx.getBean("simpleJdbcTemplateCustomerDao");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("example04-applicationContext.xml");
+        this.customerDao = (CustomerDao) ctx.getBean("simpleJdbcDaoSupportCustomerDao");
     }
 
     /**

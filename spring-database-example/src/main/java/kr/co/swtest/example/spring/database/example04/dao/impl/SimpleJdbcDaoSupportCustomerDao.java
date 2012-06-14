@@ -2,7 +2,7 @@
  * Copyright(c) 2012 SWTEST. All rights reserved.
  * This software is the proprietary information of SWTEST.
  *******************************************************************************/
-package kr.co.swtest.example.spring.database.example03.dao.impl;
+package kr.co.swtest.example.spring.database.example04.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,28 +11,16 @@ import kr.co.swtest.example.spring.database.example01.dao.CustomerDao;
 import kr.co.swtest.example.spring.database.example01.dto.CustomerDto;
 import kr.co.swtest.example.spring.database.example03.dao.mapper.CustomerDtoMapper2;
 
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
 
 /**
- * SimpleJdbcTemplateCustomerDao
+ * SimpleJdbcDaoSupportCustomerDao
  *
  * @author <a href="mailto:scroogy@swtest.co.kr">최영목</a>
  * @since 2012. 6. 14.
  */
 @SuppressWarnings("deprecation")
-public class SimpleJdbcTemplateCustomerDao implements CustomerDao {
-
-    /** SimpleJdbcTemplate */
-    private SimpleJdbcTemplate jdbcTemplate;
-
-    /**
-     * 생성자
-     *
-     * @param jdbcTemplate SimpleJdbcTemplate
-     */
-    public SimpleJdbcTemplateCustomerDao(SimpleJdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+public class SimpleJdbcDaoSupportCustomerDao extends SimpleJdbcDaoSupport implements CustomerDao {
 
     /**
      * {@inheritDoc}
@@ -40,7 +28,7 @@ public class SimpleJdbcTemplateCustomerDao implements CustomerDao {
     @Override
     public void createCustomer(CustomerDto customer) {
         StringBuffer sql = new StringBuffer("insert into customer (cust_id, cust_nm, cust_email) values ?, ?, ?");
-        this.jdbcTemplate.update(sql.toString(), customer.getId(), customer.getName(), customer.getEmail());
+        getSimpleJdbcTemplate().update(sql.toString(), customer.getId(), customer.getName(), customer.getEmail());
     }
 
     /**
@@ -49,7 +37,7 @@ public class SimpleJdbcTemplateCustomerDao implements CustomerDao {
     @Override
     public CustomerDto readCustomerById(int customerId) {
         StringBuffer sql = new StringBuffer("select cust_id, cust_nm, cust_email from customer where cust_id = ?");
-        return this.jdbcTemplate.queryForObject(sql.toString(), new CustomerDtoMapper2(), customerId);
+        return getSimpleJdbcTemplate().queryForObject(sql.toString(), new CustomerDtoMapper2(), customerId);
     }
 
     /**
@@ -79,7 +67,7 @@ public class SimpleJdbcTemplateCustomerDao implements CustomerDao {
             params.add(customer.getEmail());
         }
 
-        return this.jdbcTemplate.query(sql.toString(), new CustomerDtoMapper2(), params.toArray());
+        return getSimpleJdbcTemplate().query(sql.toString(), new CustomerDtoMapper2(), params.toArray());
     }
 
     /**
@@ -88,7 +76,7 @@ public class SimpleJdbcTemplateCustomerDao implements CustomerDao {
     @Override
     public void updateCustomer(CustomerDto customer) {
         StringBuffer sql = new StringBuffer("update customer set cust_nm = ?, cust_email = ? where cust_id = ?");
-        this.jdbcTemplate.update(sql.toString(), customer.getName(), customer.getEmail(), customer.getId());
+        getSimpleJdbcTemplate().update(sql.toString(), customer.getName(), customer.getEmail(), customer.getId());
     }
 
     /**
@@ -97,7 +85,7 @@ public class SimpleJdbcTemplateCustomerDao implements CustomerDao {
     @Override
     public void deleteCustomerById(int customerId) {
         StringBuffer sql = new StringBuffer("delete from customer where cust_id = ?");
-        this.jdbcTemplate.update(sql.toString(), customerId);
+        getSimpleJdbcTemplate().update(sql.toString(), customerId);
     }
 
 }

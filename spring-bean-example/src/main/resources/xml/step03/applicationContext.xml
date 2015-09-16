@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 생성자를 이용한 주입 -->
+	<bean id="programmer" class="kr.co.swtest.example.spring.bean.Programmer">
+		<constructor-arg value="12" />
+	</bean>
+
+	<!-- 생성자로 객체 레퍼런스 주입하기 -->
+	<bean id="macbookProRetina" class="kr.co.swtest.example.spring.bean.MacBookProRetina" />
+
+	<bean id="iPhoneAppProgrammer" class="kr.co.swtest.example.spring.bean.IPhoneAppProgrammer">
+		<constructor-arg value="10" />
+		<constructor-arg ref="macbookProRetina" />
+	</bean>
+</beans>

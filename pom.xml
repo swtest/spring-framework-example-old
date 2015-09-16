@@ -9,16 +9,21 @@
 	<description>부모 POM. JDK 버전 및 인코딩 등을 설정한다.</description>
 
 	<properties>
-		<!-- scm branches 주소를 입력해주세요. -->
+		<!-- scm branches 주소 -->
 		<scm.branches.dir></scm.branches.dir>
 
-		<!-- scm tags 주소를 입력해주세요. -->
+		<!-- scm tags 주소 -->
 		<svn.tags.dir></svn.tags.dir>
 
-		<!-- 개발표준이므로 수정하지 마세요. -->
-		<spring.version>3.1.1.RELEASE</spring.version>
-		<hibernate.version>3.6.10.Final</hibernate.version>
-		<mybatis.version>3.1.1</mybatis.version>
+		<!-- 인코딩 -->
+		<java.encoding>UTF-8</java.encoding>
+		<resources.encoding>UTF-8</resources.encoding>
+
+		<!-- Java, 프레임워크, 라이브러리 버전 -->
+		<java.version>1.8</java.version>
+		<spring.version>4.2.1.RELEASE</spring.version>
+		<hibernate.version>5.0.1.Final</hibernate.version>
+		<mybatis.version>3.3.0</mybatis.version>
 	</properties>
 
 	<build>
@@ -38,9 +43,9 @@
 					<!-- javac 옵션과 동일함 -->
 					<!-- source : .class file을 컴파일하는 버전(JDK) -->
 					<!-- target : .class file이 실행될 버전(JVM) -->
-					<source>1.6</source>
-					<target>1.6</target>
-					<encoding>euc-kr</encoding>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${java.encoding}</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -61,7 +66,7 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.5</version>
 				<configuration>
-					<encoding>UTF-8</encoding>
+					<encoding>${resources.encoding}</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -74,12 +79,13 @@
 					<reportFormat>xml</reportFormat>
 				</configuration>
 			</plugin>
+			<!--
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.8.1</version>
 				<configuration>
-					<encoding>euc-kr</encoding>
+					<encoding>${java.encoding}</encoding>
 				</configuration>
 				<executions>
 					<execution>
@@ -90,6 +96,7 @@
 					</execution>
 				</executions>
 			</plugin>
+			-->
 			<!--
 			<plugin>
 				<artifactId>maven-release-plugin</artifactId>

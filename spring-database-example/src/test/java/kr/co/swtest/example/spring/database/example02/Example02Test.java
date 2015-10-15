@@ -22,9 +22,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
-import org.springframework.test.jdbc.SimpleJdbcTestUtils;
+import org.springframework.test.jdbc.JdbcTestUtils;
 
 /**
  * Example02Test <br/>
@@ -46,9 +46,9 @@ public class Example02Test {
     public void before() {
         // 1. DB 초기데이터 설정(필요시 테이블 create)
         DataSource dataSource = new SimpleDriverDataSource(new JDBCDriver(), "jdbc:hsqldb:mem:test", "SA", "");
-        SimpleJdbcTemplate template = new SimpleJdbcTemplate(dataSource);
+        JdbcTemplate template = new JdbcTemplate(dataSource);
         Resource resource = new ClassPathResource("/script/test-script.sql");
-        SimpleJdbcTestUtils.executeSqlScript(template, resource, true);
+        JdbcTestUtils.executeSqlScript(template, resource, true);
 
         // 2. 테스트 대상 생성
         this.customerDao = new JdbcCustomerDao2();

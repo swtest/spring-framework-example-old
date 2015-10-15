@@ -11,7 +11,7 @@ import kr.co.swtest.example.spring.database.example01.dao.CustomerDao;
 import kr.co.swtest.example.spring.database.example01.dto.CustomerDto;
 import kr.co.swtest.example.spring.database.example03.dao.mapper.CustomerDtoMapper2;
 
-import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 /**
  * SimpleJdbcDaoSupportCustomerDao
@@ -19,8 +19,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
  * @author <a href="mailto:scroogy@swtest.co.kr">√÷øµ∏Ò</a>
  * @since 2012. 6. 14.
  */
-@SuppressWarnings("deprecation")
-public class SimpleJdbcDaoSupportCustomerDao extends SimpleJdbcDaoSupport implements CustomerDao {
+public class SimpleJdbcDaoSupportCustomerDao extends JdbcDaoSupport implements CustomerDao {
 
     /**
      * {@inheritDoc}
@@ -28,7 +27,7 @@ public class SimpleJdbcDaoSupportCustomerDao extends SimpleJdbcDaoSupport implem
     @Override
     public void createCustomer(CustomerDto customer) {
         StringBuffer sql = new StringBuffer("insert into customer (cust_id, cust_nm, cust_email) values ?, ?, ?");
-        getSimpleJdbcTemplate().update(sql.toString(), customer.getId(), customer.getName(), customer.getEmail());
+        getJdbcTemplate().update(sql.toString(), customer.getId(), customer.getName(), customer.getEmail());
     }
 
     /**
@@ -37,7 +36,11 @@ public class SimpleJdbcDaoSupportCustomerDao extends SimpleJdbcDaoSupport implem
     @Override
     public CustomerDto readCustomerById(int customerId) {
         StringBuffer sql = new StringBuffer("select cust_id, cust_nm, cust_email from customer where cust_id = ?");
-        return getSimpleJdbcTemplate().queryForObject(sql.toString(), new CustomerDtoMapper2(), customerId);
+        try {
+            return getJdbcTemplate().queryForObject(sql.toString(), new CustomerDtoMapper2(), customerId);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     /**
@@ -67,7 +70,7 @@ public class SimpleJdbcDaoSupportCustomerDao extends SimpleJdbcDaoSupport implem
             params.add(customer.getEmail());
         }
 
-        return getSimpleJdbcTemplate().query(sql.toString(), new CustomerDtoMapper2(), params.toArray());
+        return getJdbcTemplate().query(sql.toString(), new CustomerDtoMapper2(), params.toArray());
     }
 
     /**
@@ -76,7 +79,7 @@ public class SimpleJdbcDaoSupportCustomerDao extends SimpleJdbcDaoSupport implem
     @Override
     public void updateCustomer(CustomerDto customer) {
         StringBuffer sql = new StringBuffer("update customer set cust_nm = ?, cust_email = ? where cust_id = ?");
-        getSimpleJdbcTemplate().update(sql.toString(), customer.getName(), customer.getEmail(), customer.getId());
+        getJdbcTemplate().update(sql.toString(), customer.getName(), customer.getEmail(), customer.getId());
     }
 
     /**
@@ -85,7 +88,7 @@ public class SimpleJdbcDaoSupportCustomerDao extends SimpleJdbcDaoSupport implem
     @Override
     public void deleteCustomerById(int customerId) {
         StringBuffer sql = new StringBuffer("delete from customer where cust_id = ?");
-        getSimpleJdbcTemplate().update(sql.toString(), customerId);
+        getJdbcTemplate().update(sql.toString(), customerId);
     }
 
 }

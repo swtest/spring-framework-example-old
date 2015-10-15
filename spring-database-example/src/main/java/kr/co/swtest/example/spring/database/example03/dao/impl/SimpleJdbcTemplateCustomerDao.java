@@ -11,7 +11,7 @@ import kr.co.swtest.example.spring.database.example01.dao.CustomerDao;
 import kr.co.swtest.example.spring.database.example01.dto.CustomerDto;
 import kr.co.swtest.example.spring.database.example03.dao.mapper.CustomerDtoMapper2;
 
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * SimpleJdbcTemplateCustomerDao
@@ -19,18 +19,17 @@ import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
  * @author <a href="mailto:scroogy@swtest.co.kr">최영목</a>
  * @since 2012. 6. 14.
  */
-@SuppressWarnings("deprecation")
 public class SimpleJdbcTemplateCustomerDao implements CustomerDao {
 
     /** SimpleJdbcTemplate */
-    private SimpleJdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     /**
      * 생성자
      *
      * @param jdbcTemplate SimpleJdbcTemplate
      */
-    public SimpleJdbcTemplateCustomerDao(SimpleJdbcTemplate jdbcTemplate) {
+    public SimpleJdbcTemplateCustomerDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -49,7 +48,11 @@ public class SimpleJdbcTemplateCustomerDao implements CustomerDao {
     @Override
     public CustomerDto readCustomerById(int customerId) {
         StringBuffer sql = new StringBuffer("select cust_id, cust_nm, cust_email from customer where cust_id = ?");
-        return this.jdbcTemplate.queryForObject(sql.toString(), new CustomerDtoMapper2(), customerId);
+        try {
+            return this.jdbcTemplate.queryForObject(sql.toString(), new CustomerDtoMapper2(), customerId);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     /**
